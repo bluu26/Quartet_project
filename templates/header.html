@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<ul id="navbar">
+  <li><a class="active" href="{% url 'home' %}">Home</a></li>
+  <li><a href="{% url 'register' %}">Register</a></li>
+  <li><a href="{% url 'login' %}">Login</a></li>
+  <li style="float:right"><a href="{% url 'home' %}">About</a></li>
+</ul>
+
+<script src="{% static 'script.js' %}"></script>
+
+</body>
+</html>

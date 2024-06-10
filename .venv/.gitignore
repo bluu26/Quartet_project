@@ -1,0 +1,58 @@
+# Systemowe pliki tymczasowe
+*.log
+*.pot
+*.pyc
+*.pyo
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Wirtualne środowisko
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Ustawienia specyficzne dla IDE i edytorów
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Pliki specyficzne dla systemu operacyjnego
+*.orig
+*.rej
+*.bak
+
+# Django
+*.sqlite3
+*.pyc
+*.pyo
+__pycache__/
+db.sqlite3
+media/
+staticfiles/
+
+# Pliki konfiguracyjne z danymi wrażliwymi
+.env
+.settings/
+local_settings.py
+
+# Node.js dependencies
+node_modules/
+
+# Coverage
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
