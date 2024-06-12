@@ -1,0 +1,37 @@
+{% include 'header.html' %}
+{% block content %}
+    <form method="POST">
+    {% csrf_token %}
+    <div>
+    <p><input type="text" name="event_name" placeholder="Wydarzenie"></p>
+    <p><input type="date" name="date_start" placeholder="Data"></p>
+    <p><input type="time" name="time_start" placeholder="Godzina rozpoczęcia"></p>
+    <p><input type="time" name="time_end" placeholder="Godzina zakończenia"></p>
+    <p><input type="text" name="localization" placeholder="Lokalizacja"></p>
+    <p><input type="number" name="money_profit" placeholder="Dochód"></p>
+    <p><input type="text" name="leaving_location" placeholder="Miejsce wyjazdu"></p>
+    <p><input type="text" name="leaving_time" placeholder="Godzina wyjazdu"></p>
+{#    <p><#}
+{#        <select name="organizator">#}
+{#            {% for organizator in organizators %}#}
+{#                <option value="{{ organizator.id }}">{% organizator.name %}</option>#}
+{#            {% endfor %}#}
+{#        </select>#}
+{#    </p>#}
+    <p><input type="textarea" name="description" placeholder="Opis"></p>
+    
+    </div>
+    <div>
+    <p>
+        <label>Wybierz utwory:</label><br>
+        {% for song in songs %}
+            <input type="checkbox" name="songs" value="{{ song.id }}">{{ song.name }}
+            
+        {% endfor %}
+    </p>
+    </div>
+    <div>
+        <p><input type="submit" value="ZAPISZ"></p>
+    </div>
+    </form>
+{% endblock %}
