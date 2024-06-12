@@ -10,15 +10,14 @@
     <p><input type="text" name="localization" placeholder="Lokalizacja"></p>
     <p><input type="number" name="money_profit" placeholder="Dochód"></p>
     <p><input type="text" name="leaving_location" placeholder="Miejsce wyjazdu"></p>
-    <p><input type="text" name="leaving_time" placeholder="Godzina wyjazdu"></p>
-{#    <p><#}
-{#        <select name="organizator">#}
-{#            {% for organizator in organizators %}#}
-{#                <option value="{{ organizator.id }}">{% organizator.name %}</option>#}
-{#            {% endfor %}#}
-{#        </select>#}
-{#    </p>#}
-    <p><input type="textarea" name="description" placeholder="Opis"></p>
+    <p><input type="time" name="leaving_time" placeholder="Godzina wyjazdu"></p>
+    <p><select name="organizator_id">
+        {% for organizator in organizators %}
+            <option value="{{ organizator.id }}">{{ organizator.name }}</option>
+        {% endfor %}
+    </select></p>
+    
+    <p><textarea name="description" placeholder="Opis"></textarea></p>
     
     </div>
     <div>
