@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% include 'header.html' %}
+{% block content %}
+    <form method="POST">
+    {% csrf_token %}
+        <input type="text" name="name" placeholder="Nazwa">
+        <input type="text" name="contact" placeholder="Kontakt">
+        <input type="text" name="description" placeholder="notatka">
+        <input type="submit" value="zapiszcz">
+    </form>
 
-</body>
-</html>
+
+
+{% endblock %}

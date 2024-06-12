@@ -1,0 +1,12 @@
+{% include 'header.html' %}
+{% block content %}
+    <form method="POST">
+    {% csrf_token %}
+        <input type="text" name="composer" placeholder="Kompozytor">
+        <input type="text" name="name" placeholder="Utwór">
+        <input type="submit" value="zapiszcz">
+    </form>
+
+
+
+{% endblock %}

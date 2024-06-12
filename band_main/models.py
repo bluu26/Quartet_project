@@ -2,13 +2,9 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-class Composer(models.Model):
-    name = models.CharField(max_length=100)
-
-
 class Song(models.Model):
     name = models.CharField(max_length=100)
-    composer = models.ManyToManyField(Composer)
+    composer = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.composer, self.name}"
@@ -23,14 +19,14 @@ class Organizator(models.Model):
 class Event(models.Model):
     event_name = models.CharField(max_length=100)
     date_start = models.DateField()
-    time_start = models.DateTimeField()
-    time_end = models.DateTimeField()
+    time_start = models.TimeField()
+    time_end = models.TimeField()
     localization = models.CharField(max_length=100)
     money_profit = models.FloatField(default=0.0)
     description = models.TextField()
     song = models.ManyToManyField(Song)
     leaving_location = models.CharField(max_length=100)
-    leaving_time = models.CharField(max_length=100)
+    leaving_time = models.TimeField()
     organizator = models.ForeignKey(Organizator, on_delete=models.CASCADE)
 
 
