@@ -13,6 +13,19 @@ def test_home_view():
     assert response.status_code == 200
 
 
+def test_add_song_view():
+    url = reverse('add_song')
+    client = Client()
+    response = client.get(url)
+    assert response.status_code == 200
+
+def test_success_page_view():
+    url = reverse('home')
+    client = Client()
+    response = client.get(url)
+    assert response.status_code == 200
+
+
 def test_create_event_view():
     url = reverse('create_event')
     client = Client()
