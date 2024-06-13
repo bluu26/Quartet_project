@@ -14,10 +14,13 @@ class RegisterView(View):
         return render(request, "accounts/create_user.html")
 
     def post(self, request):
-        username = request.POST['username']
+        username = request.POST['username'].strip()
         password = request.POST['password']
         password2 = request.POST['password2']
         secret_code = request.POST['secret_code']
+
+        if not username:
+            return render(request, "accounts/create_user.html", {'error': 'Brak użytkownika'})
 
         if secret_code != self.SECRET_CODE:
             return render(request, "accounts/create_user.html", {'error': 'Błędny kod'})
