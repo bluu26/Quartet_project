@@ -1,6 +1,11 @@
 {% include 'header.html' %}
 {% block content %}
-<h1>Dodano do bazy</h1>
-    <p>Yay, udało się dodać do bazy danych.</p>
+
+    <p>{{ info }}</p>
+    {% if messages %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+{% endif %}
     <a href="{% url 'home' %}"><button>Powrót</button></a>
 {% endblock %}

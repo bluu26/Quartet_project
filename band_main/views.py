@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from django.contrib import messages
 
 from band_main.models import Song, Organizator, Event
 
@@ -18,6 +19,7 @@ class SuccessPageView(View):
 
 class AddSongView(View):
     def get(self, request):
+        messages.success(request, 'Dodano utwór')
         return render(request, 'add_song.html')
 
     def post(self, request):
