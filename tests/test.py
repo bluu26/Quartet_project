@@ -64,6 +64,8 @@ def test_add_song_view_post(user):
 
     assert song
     assert response.status_code == 302
+
+
 # --------------------------------------------#
 # SONG_LIST
 # --------------------------------------------#
@@ -83,12 +85,10 @@ def test_song_list_len(client, user, songs):
     url = reverse('song_list')
     response = client.get(url)
     assert response.status_code == 200
-    context = response.context
-    assert 'object_list' in context
-    object_list = context['object_list']
-    assert object_list.count() == len(songs)
+    song_objects = response.context['songs']
+    assert song_objects.count() == len(songs)
     for s in songs:
-        assert s in object_list
+        assert s in song_objects
 
 
 # --------------------------------------------#
