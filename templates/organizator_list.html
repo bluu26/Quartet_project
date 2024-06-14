@@ -1,0 +1,17 @@
+{% include 'header.html' %}
+{% block content %}
+    
+    <table>
+        <tr>
+            <th>Utwór</th>
+            <th>kompozytor</th>
+        </tr>
+        {% for organizator in organizators %}
+        <tr>
+                <td>{{ organizator.name }}</td>
+                <td>{{ organizator.contact }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+    
+{% endblock %}

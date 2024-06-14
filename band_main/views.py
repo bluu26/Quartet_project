@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib import messages
+from django.views.generic import DetailView
 
 from band_main.models import Song, Organizator, Event
 
@@ -50,6 +51,12 @@ class AddOrganizatorView(LoginRequiredMixin, View):
         return redirect('success_page')
 
 
+class OrganizatorListView(LoginRequiredMixin, View):
+    def get(self, request):
+        organizators = Organizator.objects.all()
+        return render(request, 'organizator_list.html', {'organizators': organizators})
+
+
 class CreateEventView(LoginRequiredMixin, View):
     def get(self, request):
         songs = Song.objects.all()
@@ -90,5 +97,13 @@ class CreateEventView(LoginRequiredMixin, View):
             event.song.add(song)
 
         return redirect('success_page')
+
+
+class EventDetailsView(LoginRequiredMixin, DetailView):
+    model = Event
+    template_name = 'event_details.html'
+
+
+
 
 

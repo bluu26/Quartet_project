@@ -64,6 +64,8 @@ def test_add_song_view_post(user):
 
     assert song
     assert response.status_code == 302
+
+
 # --------------------------------------------#
 # SONG_LIST
 # --------------------------------------------#
@@ -83,12 +85,10 @@ def test_song_list_len(client, user, songs):
     url = reverse('song_list')
     response = client.get(url)
     assert response.status_code == 200
-    context = response.context
-    assert 'object_list' in context
-    object_list = context['object_list']
-    assert object_list.count() == len(songs)
+    song_objects = response.context['songs']
+    assert song_objects.count() == len(songs)
     for s in songs:
-        assert s in object_list
+        assert s in song_objects
 
 
 # --------------------------------------------#
@@ -134,7 +134,36 @@ def test_add_organizator_view_post_logout(client):
     assert response.status_code == 302
     assert response.url.startswith(reverse('login'))
     assert not Organizator.objects.filter(name='orgtest').exists()
+# --------------------------------------------#
+# ORGANIZATOR_LIST
+# --------------------------------------------#
 
+
+@pytest.mark.django_db
+def test_organizator_view_authorized_get(client, user):
+    client.force_login(user)
+    url = reverse('organizator_list')
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_organizator_view_unauthorized_get(client):
+    url = reverse('organizator_list')
+    response = client.get(url)
+    assert response.status_code == 302
+
+
+@pytest.mark.django_db
+def test_organizator_list_view(client, user, organizators):
+    client.force_login(user)
+    url = reverse('organizator_list')
+    response = client.get(url)
+    assert response.status_code == 200
+    organizators_objects = response.context['organizators']
+    assert organizators_objects.count() == len(organizators)
+    for s in organizators:
+        assert s in organizators_objects
 
 # --------------------------------------------#
 # CREATE_EVENT
@@ -191,6 +220,23 @@ def test_create_event_view_post(user):
 
     assert Event.objects.get(event_name='Randomowe Wydarzenie')
     assert response.status_code == 302
+# --------------------------------------------#
+# EVENT_DETAILS
+# --------------------------------------------#
+
+
+@pytest.mark.django_db
+def test_event_details_view_get(client, user, event2):
+    client.force_login(user)
+    url = reverse('event_details', kwargs={'pk': event2.pk})
+    response = client.get(url)
+    assert response.status_code == 200
+    result = response.context
+    assert result['event'] == event2
+    event_context = result['event']
+    assert event_context.event_name == event2.event_name
+    assert list(event_context.song.all()) == list(event2.song.all())
+
 
 # --------------------------------------------#
 # REGISTER

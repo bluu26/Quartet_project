@@ -1,0 +1,58 @@
+{% include 'header.html' %}
+{% block content %}
+    <h1>{{ event.event_name }}</h1>
+    <table>
+        <tbody>
+            <tr>
+                <th>Nazwa wydarzenia:</th>
+                <td>{{ event.event_name }}</td>
+            </tr>
+            <tr>
+                <th>Data rozpoczęcia:</th>
+                <td>{{ event.date_start }}</td>
+            </tr>
+            <tr>
+                <th>Czas rozpoczęcia:</th>
+                <td>{{ event.time_start }}</td>
+            </tr>
+            <tr>
+                <th>Czas zakończenia:</th>
+                <td>{{ event.time_end }}</td>
+            </tr>
+            <tr>
+                <th>Lokalizacja:</th>
+                <td>{{ event.localization }}</td>
+            </tr>
+            <tr>
+                <th>Zysk:</th>
+                <td>{{ event.money_profit }}</td>
+            </tr>
+            <tr>
+                <th>Opis:</th>
+                <td>{{ event.description }}</td>
+            </tr>
+            <tr>
+                <th>Utwory:</th>
+                <td>
+                    <ul>
+                        {% for song in event.song.all %}
+                            <li>{{ song.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Miejsce wyjazdu:</th>
+                <td>{{ event.leaving_location }}</td>
+            </tr>
+            <tr>
+                <th>Czas wyjazdu:</th>
+                <td>{{ event.leaving_time }}</td>
+            </tr>
+            <tr>
+                <th>Organizator:</th>
+                <td>{{ event.organizator.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
