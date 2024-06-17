@@ -29,6 +29,9 @@ class Event(models.Model):
     leaving_time = models.TimeField()
     organizator = models.ForeignKey(Organizator, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.event_name}'
+
 
 class DaysOff(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

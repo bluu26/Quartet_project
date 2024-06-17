@@ -1,0 +1,65 @@
+{% include 'header.html' %}
+{% block content %}
+{% load static %}
+{% load custom_filters %}
+    <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalendarz</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'cal.css' %}">
+</head>
+    <body>
+<div class="calendar-container">
+    <h1>Kalendarz</h1>
+
+    <div class="calendar-navigation">
+        {% if previous_month %}
+            <a href="{% url 'calendar_view' year=previous_month.year month=previous_month.month %}" class="nav-button">Poprzedni miesiąc</a>
+        {% endif %}
+        <span class="current-month">{{ current_month }}</span>
+        {% if next_month %}
+            <a href="{% url 'calendar_view' year=next_month.year month=next_month.month %}" class="nav-button">Następny miesiąc</a>
+        {% endif %}
+    </div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Po</th>
+                <th>Wt</th>
+                <th>Śr</th>
+                <th>Cz</th>
+                <th>Pt</th>
+                <th>So</th>
+                <th>Nd</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for week in month_days %}
+                <tr>
+                    {% for day in week %}
+                        <td>
+                            {% if day %}
+                                <a href="{% url 'add_event_view' year=year month=month day=day %}">{{ day }}</a>
+                                {% if day in event_dict.keys %}
+                                    <ul>
+                                    
+{#                                        #}
+{#                                      {% for event in event_dict.values %}#}
+{#                                      {% for event_name in events %}#}
+{#                                        <li>{{ event.event_name }}</li>#}
+{#                                      {% endfor %}#}
+{#                                    {% endfor %}#}
+                                    </ul>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+{% endblock %}

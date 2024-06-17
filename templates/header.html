@@ -16,6 +16,7 @@
         <li><a href="{% url 'song_list' %}">Utwory</a></li>
         <li><a href="{% url 'add_organizator' %}">Dodaj organizatora</a></li>
         <li><a href="{% url 'organizator_list' %}">Organizatorzy</a></li>
+        <li><a href="{% url 'calendar_view' year=2024 month=6 %}">KALENDARZ</a></li>
     {% endif %}
     {% if user.is_authenticated %}
         <li style="float:right"><a href="{% url 'logout' %}">Wyloguj</a></li>
