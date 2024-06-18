@@ -1,0 +1,15 @@
+{% include 'header.html' %}
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'song.css' %}">
+</head>
+{% block content %}
+    <div class="song-container">
+        <h2>Czy na pewno chcesz usunąć utwór "{{ song.name }}"?</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">Tak, usuń</button>
+            <a href="{% url 'song_list' %}" class="delete-button">Anuluj</a>
+        </form>
+    </div>
+{% endblock %}

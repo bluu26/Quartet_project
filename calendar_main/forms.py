@@ -14,3 +14,5 @@ class EventForm(forms.ModelForm):
 
         # Pobierz wszystkie dostępne piosenki
         self.fields['song'].queryset = Song.objects.all()
+
+

@@ -150,7 +150,7 @@ h1 {
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    background-color: #f4f4f4;
+    background-color: #04AA6D;
     padding: 20px;
     box-sizing: border-box; /* Uwzględnienie paddingu w obliczeniach */
 }
