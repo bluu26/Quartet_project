@@ -40,16 +40,13 @@
                     {% for day in week %}
                         <td>
                             {% if day %}
-                                <a href="{% url 'add_event_view' year=year month=month day=day %}">{{ day }}</a>
-                                {% if day in event_dict.keys %}
+{#                                <a href="{% url 'add_event_view' year=year month=month day=day %}">{{ day }}</a>#}
+                                <a href="{% url 'create_event'%}">{{ day }}</a>
+                                {% if day in event_dict %}
                                     <ul>
-                                    
-{#                                        #}
-{#                                      {% for event in event_dict.values %}#}
-{#                                      {% for event_name in events %}#}
-{#                                        <li>{{ event.event_name }}</li>#}
-{#                                      {% endfor %}#}
-{#                                    {% endfor %}#}
+                                        {% for event in event_dict|get_item:day %}
+                                            <li>{{ event.event_name }}</li>
+                                        {% endfor %}
                                     </ul>
                                 {% endif %}
                             {% endif %}
