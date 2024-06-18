@@ -91,6 +91,78 @@ def test_song_list_len(client, user, songs):
         assert s in song_objects
 
 
+@pytest.mark.django_db
+def test_edit_song_view(client, user, songs2):
+    client.force_login(user)
+    song = songs2[0]
+    url = reverse('edit_song', args=[song.id])
+    response = client.get(url)
+    assert response.status_code == 200
+    assert 'form' in response.context
+    assert response.context['form'].instance == song
+    assert response.context['song'] == song
+
+
+@pytest.mark.django_db
+def test_edit_song_view_success(client, user, songs2):
+    client.force_login(user)
+    song = songs2[0]
+    url = reverse('edit_song', args=[song.id])
+    data = {
+        'name': 'new name',
+        'composer': 'new composer'
+    }
+    response = client.post(url, data)
+    assert response.status_code == 302
+    assert response.url == reverse('song_list')
+
+    song.refresh_from_db()
+    assert song.name == 'new name'
+    assert song.composer == 'new composer'
+
+
+@pytest.mark.django_db
+def test_edit_song_view_fail(client, user, songs2):
+    client.force_login(user)
+    song = songs2[0]
+    url = reverse('edit_song', args=[song.id])
+    data = {
+        'name': '',
+        'composer': 'new composer'
+    }
+    response = client.post(url, data)
+    assert response.status_code == 200
+    assert 'form' in response.context
+    assert response.context['form'].errors
+    assert response.context['song'] == song
+
+    song.refresh_from_db()
+    assert song.name != ''
+    assert song.composer != 'new composer'
+
+
+@pytest.mark.django_db
+def test_delete_song_view_get(client, user, song_del):
+    client.force_login(user)
+    url = reverse('delete_song', args=[song_del.id])
+    response = client.get(url)
+    assert response.status_code == 200
+    assert 'song' in response.context
+    assert response.context['song'] == song_del
+
+
+@pytest.mark.django_db
+def test_delete_song_view_post(client, user, song_del):
+    client.force_login(user)
+    url = reverse('delete_song', args=[song_del.id])
+    response = client.post(url)
+
+    assert response.status_code == 302
+    assert response.url == reverse('song_list')
+
+    with pytest.raises(Song.DoesNotExist):
+        Song.objects.get(id=song_del.id)
+
 # --------------------------------------------#
 # ORGANIZATOR
 # --------------------------------------------#

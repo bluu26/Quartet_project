@@ -36,7 +36,11 @@ class AddSongView(LoginRequiredMixin, View):
 
 class SongListView(LoginRequiredMixin, View):
     def get(self, request):
-        songs = Song.objects.all()
+        query = request.GET.get('q')
+        if query:
+            songs = Song.objects.filter(name__icontains=query)
+        else:
+            songs = Song.objects.all()
         context = {'songs': songs}
         return render(request, 'song_list.html', context)
 
@@ -52,8 +56,9 @@ class EditSongView(View):
         form = SongForm(request.POST, instance=song)
         if form.is_valid():
             form.save()
-            return redirect('songs_list')  # Replace 'songs_list' with your actual songs list view name
+            return redirect('song_list')
         return render(request, 'edit_song.html', {'form': form, 'song': song})
+
 
 class DeleteSongView(View):
     def get(self, request, song_id):
@@ -63,7 +68,8 @@ class DeleteSongView(View):
     def post(self, request, song_id):
         song = get_object_or_404(Song, id=song_id)
         song.delete()
-        return redirect('songs_list')
+        return redirect('song_list')
+
 
 class AddOrganizatorView(LoginRequiredMixin, View):
     def get(self, request):
@@ -158,7 +164,6 @@ class EventEditView(UpdateView):
     form_class = EventForm
     template_name = 'edit_event.html'
     success_url = reverse_lazy('success_page')
-
 
 
 class EventDeleteView(DeleteView):

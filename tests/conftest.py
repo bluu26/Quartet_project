@@ -90,3 +90,8 @@ def event2(organizator2, songs2):
     )
     event2.song.set(songs2)
     return event2
+
+
+@pytest.fixture
+def song_del():
+    return Song.objects.create(name='ns', composer='nc')

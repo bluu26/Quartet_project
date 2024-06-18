@@ -5,6 +5,10 @@
 </head>
 {% block content %}
     <div class="song-container">
+        <form method="GET" class="search-form">
+            <input type="text" name="q" placeholder="Szukaj utworów...">
+            <button type="submit" class="search-button">Szukaj</button>
+        </form>
         <table class="song-table">
             <thead>
                 <tr>
