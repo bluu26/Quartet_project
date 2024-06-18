@@ -2,7 +2,7 @@
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 0;
+    padding: 20px; /* Dodatkowe padding dla lepszego wyglądu */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@
     justify-content: space-between;
     align-items: center;
     width: 80%;
-    margin: 20px 0;
+    margin-bottom: 20px; /* Poprawione marginesy */
 }
 
 .nav-button {
@@ -44,7 +44,6 @@
 .calendar-container table {
     border-collapse: collapse;
     width: 80%;
-    margin: 20px 0;
 }
 
 .calendar-container th {
@@ -58,16 +57,17 @@
 .calendar-container td {
     border: 1px solid #ddd;
     text-align: center;
-    width: 100px;
-    height: 100px;
     padding: 0;
+    vertical-align: top; /* Ustawienie dla prawidłowego wyświetlania zawartości w td */
+    height: 100px; /* Zachowuje wysokość komórek stałą */
+    width: calc(100% / 7); /* Automatycznie rozciąga się na szerokość */
 }
 
 .calendar-container td a {
+    display: block; /* Cały link w komórce staje się klikalny */
+    padding: 10px;
     text-decoration: none;
     color: #000;
-    display: block;
-    padding: 20px;
 }
 
 .calendar-container td a:hover {
@@ -77,15 +77,17 @@
 .calendar-container td ul {
     list-style-type: none;
     padding: 0;
-    margin: 5px 0 0 0;
+    margin: 5px 0 0; /* Margines tylko na górze */
 }
 
 .calendar-container td ul li {
-    background-color: #f9f9f9;
+    background-color: rgba(0, 0, 0, 0.1); /* Przezroczysty czarny tło */
     margin-bottom: 5px;
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 3px;
+    text-align: center; /* Wyśrodkowanie tekstu */
+    font-size: 0.9em; /* Mniejsza czcionka */
 }
 
 .calendar-container td ul li:hover {
@@ -104,4 +106,29 @@
 
 .calendar-container div a:hover {
     color: #388E3C;
+}
+
+/* Styl dla wydarzeń w jednej linii */
+.event-row {
+    background-color: #f4f4f4;
+    list-style-type: none;
+    padding: 0;
+    margin: 5px 0 0; /* Margines tylko na górze */
+}
+
+.calendar-container .event-row li {
+    background-color: #E3F2FD; /* Tło dla wydarzeń */
+    margin-bottom: 5px;
+    padding: 10px; /* Zwiększenie padding dla lepszego wyglądu */
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center; /* Wyśrodkowanie tekstu */
+    font-size: 0.9em; /* Mniejsza czcionka */
+    width: calc(100% - 22px); /* Szerokość minus padding i border */
+    margin-left: 0; /* Usunięcie marginesu po lewej stronie */
+}
+
+
+.event-row li:hover {
+    background-color: #f4f4f4;
 }

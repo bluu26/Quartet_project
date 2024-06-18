@@ -2,13 +2,13 @@
 {% block content %}
 {% load static %}
 {% load custom_filters %}
-    <html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Kalendarz</title>
     <link rel="stylesheet" type="text/css" href="{% static 'cal.css' %}">
 </head>
-    <body>
+<body>
 <div class="calendar-container">
     <h1>Kalendarz</h1>
 
@@ -40,10 +40,9 @@
                     {% for day in week %}
                         <td>
                             {% if day %}
-{#                                <a href="{% url 'add_event_view' year=year month=month day=day %}">{{ day }}</a>#}
-                                <a href="{% url 'create_event'%}">{{ day }}</a>
+                                <a href="{% url 'create_event' %}?date={{ day|date:'Y-m-d' }}">{{ day }}</a>
                                 {% if day in event_dict %}
-                                    <ul>
+                                    <ul class="event-row">
                                         {% for event in event_dict|get_item:day %}
                                             <li>{{ event.event_name }}</li>
                                         {% endfor %}
@@ -57,6 +56,6 @@
         </tbody>
     </table>
 </div>
-
 </body>
+</html>
 {% endblock %}

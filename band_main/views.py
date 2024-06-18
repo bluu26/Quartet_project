@@ -41,6 +41,7 @@ class SongListView(LoginRequiredMixin, View):
 
 class AddOrganizatorView(LoginRequiredMixin, View):
     def get(self, request):
+        messages.success(request, 'Dodano Organizatora!')
         return render(request, 'add_organizator.html')
 
     def post(self, request):
@@ -59,9 +60,12 @@ class OrganizatorListView(LoginRequiredMixin, View):
 
 class CreateEventView(LoginRequiredMixin, View):
     def get(self, request):
+        messages.success(request, 'Dodano wydarzenie!')
         songs = Song.objects.all()
         organizators = Organizator.objects.all()
-        context = {'songs': songs, 'organizators': organizators}
+        date_param = request.GET.get('date', 'None')
+        print(date_param)
+        context = {'songs': songs, 'organizators': organizators, 'date_param': date_param}
         return render(request, 'create_event.html', context)
 
     def post(self, request):

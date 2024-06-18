@@ -4,7 +4,7 @@
     {% csrf_token %}
     <div>
     <p><input type="text" name="event_name" placeholder="Wydarzenie"></p>
-    <p><input type="date" name="date_start" placeholder="Data"></p>
+    <p><input type="date" name="date_start" value="{{ date_param }}" placeholder="Data"></p>
     <p><input type="time" name="time_start" placeholder="Godzina rozpoczęcia"></p>
     <p><input type="time" name="time_end" placeholder="Godzina zakończenia"></p>
     <p><input type="text" name="localization" placeholder="Lokalizacja"></p>
