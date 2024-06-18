@@ -1,17 +1,10 @@
-from django.shortcuts import render, redirect
-from django.views import View
-import calendar
-from datetime import date, datetime
-from django.utils import timezone
-
 from django.views.generic import TemplateView
 
-from band_main.models import Event, Song, Organizator
-from calendar_main.forms import EventForm
-
+from band_main.models import Event
 
 from django.utils import timezone
 import calendar
+
 
 class CalendarView(TemplateView):
     template_name = 'calendar/calendar_main.html'
@@ -60,41 +53,3 @@ class CalendarView(TemplateView):
         print("Events:", event_dict)
         return event_dict
 
-
-# class AddEventView(View):
-#     template_name = 'create_event.html'
-#
-#     def get(self, request, day, month, year):
-#         form = EventForm(initial={'date_start': date(year, month, day)})
-#         songs = Song.objects.all()
-#         organizators = Organizator.objects.all()
-#         context = {
-#             'form': form,
-#             'songs': songs,
-#             'organizators': organizators
-#         }
-#         return render(request, self.template_name, context)
-#
-#     def post(self, request, day, month, year):
-#         form = EventForm(request.POST)
-#         if form.is_valid():
-#             event = form.save(commit=False)
-#             event.date_start = date(year, month, day)  # Ustawienie daty rozpoczęcia na podstawie URL
-#             event.save()
-#             form.save_m2m()  # Zapisanie relacji Many-to-Many
-#
-#             # Dodaj utwory do wydarzenia
-#             song_ids = request.POST.getlist('songs')
-#             for song_id in song_ids:
-#                 event.song.add(Song.objects.get(id=song_id))
-#
-#             return redirect('calendar_view', year=year, month=month)
-#
-#         songs = Song.objects.all()
-#         organizators = Organizator.objects.all()
-#         context = {
-#             'form': form,
-#             'songs': songs,
-#             'organizators': organizators
-#         }
-#         return render(request, self.template_name, context)

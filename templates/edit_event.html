@@ -1,0 +1,54 @@
+{% include 'header.html' %}
+{% block content %}
+{% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <title>Edytuj wydarzenie</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'edit_event.css' %}">
+    </head>
+    <div class="form-container">
+        <form method="POST" class="event-form">
+            {% csrf_token %}
+            <div class="form-left">
+                <!-- Reszta pól -->
+                {{ form.event_name }}
+                {{ form.date_start }}
+                {{ form.time_start }}
+                {{ form.time_end }}
+                {{ form.localization }}
+                {{ form.money_profit }}
+                {{ form.description }}
+                {{ form.leaving_location }}
+                {{ form.leaving_time }}
+                {{ form.organizator }}
+            </div>
+            <div class="form-right">
+                <!-- Pole songs jako osobna kolumna w formie tabelki -->
+                <label for="id_song">Wybierz utwory:</label>
+                <div class="songs-table-container">
+                    <table class="songs-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Kompozytor</th>
+                                <th>Utwór</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for song in form.song.field.queryset %}
+                                <tr class="song-item">
+                                    <td><input type="checkbox" name="song" value="{{ song.id }}" id="id_song_{{ forloop.counter }}"></td>
+                                    <td><label for="id_song_{{ forloop.counter }}">{{ song.composer }}</label></td>
+                                    <td>{{ song.name }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="submit-container">
+                <input type="submit" value="ZAPISZ" class="submit-button">
+            </div>
+        </form>
+    </div>
+{% endblock %}

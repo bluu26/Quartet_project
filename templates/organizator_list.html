@@ -1,17 +1,39 @@
 {% include 'header.html' %}
 {% block content %}
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'organizator.css' %}">
+</head>
     
-    <table>
-        <tr>
-            <th>Utwór</th>
-            <th>kompozytor</th>
-        </tr>
-        {% for organizator in organizators %}
-        <tr>
-                <td>{{ organizator.name }}</td>
-                <td>{{ organizator.contact }}</td>
-            {% endfor %}
-        </tr>
-    </table>
-    
+    <div class="organizator-container">
+        <h1>Lista Organizatorów</h1>
+        <table class="organizator-table">
+            <thead>
+                <tr>
+                    <th>Organizator</th>
+                    <th>Kontakt</th>
+                    <th>Opis</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for organizator in organizators %}
+                <tr>
+                    <td>{{ organizator.name }}</td>
+                    <td>{{ organizator.contact }}</td>
+                    <td>{{ organizator.description }}</td>
+                    <td>
+                        <a href="{% url 'edit_organizator' organizator.id %}" class="edit-button">Edytuj</a>
+                        <a href="{% url 'delete_organizator' organizator.id %}" class="delete-button">Usuń</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="action-buttons">
+                <a href="{% url 'home' %}" class="edit-button">Dodaj</a>
+        </div>
+    </div>
+
 {% endblock %}

@@ -1,0 +1,18 @@
+{% include 'header.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/organizator.css' %}">
+</head>
+
+    
+    <div class="organizator-delete-container">
+        <h1>Czy na pewno chcesz usunąć organizatora "{{ organizator.name }}"?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">Tak, usuń</button>
+            <a href="{% url 'organizator_list' %}" class="cancel-button">Anuluj</a>
+        </form>
+    </div>
+
+{% endblock %}

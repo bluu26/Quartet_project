@@ -44,7 +44,7 @@
                                 {% if day in event_dict %}
                                     <ul class="event-row">
                                         {% for event in event_dict|get_item:day %}
-                                            <li>{{ event.event_name }}</li>
+                                            <li><a href="{% url 'event_details' pk=event.id %}">{{ event.event_name }}</a></li>
                                         {% endfor %}
                                     </ul>
                                 {% endif %}

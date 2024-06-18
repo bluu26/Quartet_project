@@ -1,0 +1,22 @@
+{% include 'header.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuń wydarzenie</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'event.css' %}">
+</head>
+<body>
+    <div class="delete-container">
+        <h1>Usunąć "{{ event.event_name }}"?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <p>
+                <input type="submit" value="Tak, usuń" class="delete-button">
+                <a href="{% url 'event_details' event.id %}" class="cancel-button">Anuluj</a>
+            </p>
+        </form>
+    </div>
+</body>
+</html>
