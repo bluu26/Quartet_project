@@ -1,0 +1,49 @@
+/* organizator.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 0;
+}
+
+.organizator-container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.organizator-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.organizator-table th, .organizator-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.organizator-table th {
+    background-color: #f4f4f4;
+}
+
+.edit-button, .delete-button {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover, .delete-button:hover {
+    background-color: #45a049;
+}

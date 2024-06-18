@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.create-event-container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-left, .form-right {
+    width: 45%;
+}
+
+.input-field, .input-field select, .input-field textarea {
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.checkbox-field {
+    margin-right: 10px;
+}
+
+.songs-table-container {
+    margin-top: 10px;
+}
+
+.songs-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.songs-table th, .songs-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.songs-table th {
+    background-color: #f4f4f4;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+}
+
+.song-item td {
+    padding: 5px;
+}
+
+.composer-column {
+    width: 30%; /* Szerokość kolumny kompozytor */
+}
+
+.song-name-column {
+    width: 70%; /* Szerokość kolumny nazwa utworu */
+}
+
+.submit-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}

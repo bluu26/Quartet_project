@@ -1,0 +1,17 @@
+{% include 'header.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/organizator.css' %}">
+</head>
+    
+    <div class="organizator-edit-container">
+        <h1>Edytuj Organizatora: {{ organizator.name }}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="edit-submit-button">Zapisz zmiany</button>
+        </form>
+    </div>
+
+{% endblock %}

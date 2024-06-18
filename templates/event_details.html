@@ -1,58 +1,76 @@
 {% include 'header.html' %}
 {% block content %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalendarz</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'event.css' %}">
+</head>
+<body>
     <h1>{{ event.event_name }}</h1>
-    <table>
-        <tbody>
-            <tr>
-                <th>Nazwa wydarzenia:</th>
-                <td>{{ event.event_name }}</td>
-            </tr>
-            <tr>
-                <th>Data rozpoczęcia:</th>
-                <td>{{ event.date_start }}</td>
-            </tr>
-            <tr>
-                <th>Czas rozpoczęcia:</th>
-                <td>{{ event.time_start }}</td>
-            </tr>
-            <tr>
-                <th>Czas zakończenia:</th>
-                <td>{{ event.time_end }}</td>
-            </tr>
-            <tr>
-                <th>Lokalizacja:</th>
-                <td>{{ event.localization }}</td>
-            </tr>
-            <tr>
-                <th>Zysk:</th>
-                <td>{{ event.money_profit }}</td>
-            </tr>
-            <tr>
-                <th>Opis:</th>
-                <td>{{ event.description }}</td>
-            </tr>
-            <tr>
-                <th>Utwory:</th>
-                <td>
-                    <ul>
-                        {% for song in event.song.all %}
-                            <li>{{ song.name }}</li>
-                        {% endfor %}
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <th>Miejsce wyjazdu:</th>
-                <td>{{ event.leaving_location }}</td>
-            </tr>
-            <tr>
-                <th>Czas wyjazdu:</th>
-                <td>{{ event.leaving_time }}</td>
-            </tr>
-            <tr>
-                <th>Organizator:</th>
-                <td>{{ event.organizator.name }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="event-details-container">
+        <div class="event-details">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Data rozpoczęcia:</th>
+                        <td>{{ event.date_start }}</td>
+                    </tr>
+                    <tr>
+                        <th>Czas rozpoczęcia:</th>
+                        <td>{{ event.time_start }}</td>
+                    </tr>
+                    <tr>
+                        <th>Czas zakończenia:</th>
+                        <td>{{ event.time_end }}</td>
+                    </tr>
+                    <tr>
+                        <th>Lokalizacja:</th>
+                        <td>{{ event.localization }}</td>
+                    </tr>
+                    <tr>
+                        <th>Zysk:</th>
+                        <td>{{ event.money_profit }} zł</td>
+                    </tr>
+                    <tr>
+                        <th>Opis:</th>
+                        <td>{{ event.description }}</td>
+                    </tr>
+                    <tr>
+                        <th>Miejsce wyjazdu:</th>
+                        <td>{{ event.leaving_location }}</td>
+                    </tr>
+                    <tr>
+                        <th>Czas wyjazdu:</th>
+                        <td>{{ event.leaving_time }}</td>
+                    </tr>
+                    <tr>
+                        <th>Organizator:</th>
+                        <td>{{ event.organizator.name }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="action-buttons">
+                <a href="{% url 'edit_event' event.id %}" class="edit-button">Edytuj</a>
+                <a href="{% url 'delete_event' event.id %}" class="delete-button">Usuń</a>
+            </div>
+        </div>
+            <div class="event-songs">
+                        <h2>Lista utworów:</h2>
+                        <table class="songs-table">
+                            <tbody>
+                                {% for song in event.song.all %}
+                                    <tr>
+                                        <td>{{ song.composer }}</td>
+                                        <td>{{ song.name }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+</body>
+</html>
 {% endblock %}

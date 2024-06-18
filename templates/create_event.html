@@ -1,36 +1,93 @@
 {% include 'header.html' %}
-{% block content %}
-    <form method="POST">
-    {% csrf_token %}
-    <div>
-    <p><input type="text" name="event_name" placeholder="Wydarzenie"></p>
-    <p><input type="date" name="date_start" value="{{ date_param }}" placeholder="Data"></p>
-    <p><input type="time" name="time_start" placeholder="Godzina rozpoczęcia"></p>
-    <p><input type="time" name="time_end" placeholder="Godzina zakończenia"></p>
-    <p><input type="text" name="localization" placeholder="Lokalizacja"></p>
-    <p><input type="number" name="money_profit" placeholder="Dochód"></p>
-    <p><input type="text" name="leaving_location" placeholder="Miejsce wyjazdu"></p>
-    <p><input type="time" name="leaving_time" placeholder="Godzina wyjazdu"></p>
-    <p><select name="organizator_id">
-        {% for organizator in organizators %}
-            <option value="{{ organizator.id }}">{{ organizator.name }}</option>
-        {% endfor %}
-    </select></p>
-    
-    <p><textarea name="description" placeholder="Opis"></textarea></p>
-    
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stwórz wydarzenie</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'create_event.css' %}">
+</head>
+<body>
+    <div class="create-event-container">
+        <h1>Stwórz nowe wydarzenie</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-container">
+                <div class="form-left">
+                    <p>
+                        <label for="event_name">Wydarzenie:</label>
+                        <input type="text" id="event_name" name="event_name" placeholder="Wydarzenie" class="input-field">
+                    </p>
+                    <p>
+                        <label for="date_start">Data:</label>
+                        <input type="date" id="date_start" name="date_start" value="{{ date_param }}" placeholder="Data" class="input-field">
+                    </p>
+                    <p>
+                        <label for="time_start">Godzina rozpoczęcia:</label>
+                        <input type="time" id="time_start" name="time_start" placeholder="Godzina rozpoczęcia" class="input-field">
+                    </p>
+                    <p>
+                        <label for="time_end">Godzina zakończenia:</label>
+                        <input type="time" id="time_end" name="time_end" placeholder="Godzina zakończenia" class="input-field">
+                    </p>
+                    <p>
+                        <label for="localization">Lokalizacja:</label>
+                        <input type="text" id="localization" name="localization" placeholder="Lokalizacja" class="input-field">
+                    </p>
+                    <p>
+                        <label for="money_profit">Dochód:</label>
+                        <input type="number" id="money_profit" name="money_profit" placeholder="Dochód" class="input-field">
+                    </p>
+                    <p>
+                        <label for="leaving_location">Miejsce wyjazdu:</label>
+                        <input type="text" id="leaving_location" name="leaving_location" placeholder="Miejsce wyjazdu" class="input-field">
+                    </p>
+                    <p>
+                        <label for="leaving_time">Godzina wyjazdu:</label>
+                        <input type="time" id="leaving_time" name="leaving_time" placeholder="Godzina wyjazdu" class="input-field">
+                    </p>
+                    <p>
+                        <label for="organizator_id">Organizator:</label>
+                        <select id="organizator_id" name="organizator_id" class="input-field">
+                            {% for organizator in organizators %}
+                                <option value="{{ organizator.id }}">{{ organizator.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </p>
+                    <p>
+                        <label for="description">Opis:</label>
+                        <textarea id="description" name="description" placeholder="Opis" class="input-field"></textarea>
+                    </p>
+                </div>
+                <div class="form-right">
+                    <label>Wybierz utwory:</label>
+                    <div class="songs-table-container">
+                        <table class="songs-table">
+                            <thead>
+                                <tr>
+                                    <th>X Kompozytor Utwór</th>
+                                    <th>Kompozytor</th>
+                                    <th>Utwór</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for song in songs %}
+                                    <tr class="song-item">
+                                        <td><input type="checkbox" name="songs" value="{{ song.id }}" class="checkbox-field"></td>
+                                        <td class="composer-column">{{ song.composer }}</td>
+                                        <td class="song-name-column">{{ song.name }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="submit-container">
+                <input type="submit" value="ZAPISZ" class="submit-button">
+            </div>
+        </form>
     </div>
-    <div>
-    <p>
-        <label>Wybierz utwory:</label><br>
-        {% for song in songs %}
-            <input type="checkbox" name="songs" value="{{ song.id }}">{{ song.name }}
-            
-        {% endfor %}
-    </p>
-    </div>
-    <div>
-        <p><input type="submit" value="ZAPISZ"></p>
-    </div>
-    </form>
-{% endblock %}
+</body>
+</html>
+

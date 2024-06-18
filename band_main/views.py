@@ -1,9 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.views import View
 from django.contrib import messages
-from django.views.generic import DetailView
+from django.views.generic import DetailView, UpdateView, DeleteView
 
+from band_main.forms import EventForm, OrganizatorForm
 from band_main.models import Song, Organizator, Event
 
 
@@ -58,6 +60,25 @@ class OrganizatorListView(LoginRequiredMixin, View):
         return render(request, 'organizator_list.html', {'organizators': organizators})
 
 
+class EditOrganizatorView(UpdateView):
+    model = Organizator
+    form_class = OrganizatorForm
+    template_name = 'edit_organizator.html'
+    success_url = reverse_lazy('organizator_list')
+
+    def get_object(self, queryset=None):
+        return get_object_or_404(Organizator, pk=self.kwargs['organizator_id'])
+
+
+class DeleteOrganizatorView(DeleteView):
+    model = Organizator
+    template_name = 'delete_organizator.html'
+    success_url = reverse_lazy('organizator_list')
+
+    def get_object(self, queryset=None):
+        return get_object_or_404(Organizator, pk=self.kwargs['organizator_id'])
+
+
 class CreateEventView(LoginRequiredMixin, View):
     def get(self, request):
         messages.success(request, 'Dodano wydarzenie!')
@@ -106,6 +127,20 @@ class CreateEventView(LoginRequiredMixin, View):
 class EventDetailsView(LoginRequiredMixin, DetailView):
     model = Event
     template_name = 'event_details.html'
+
+
+class EventEditView(UpdateView):
+    model = Event
+    form_class = EventForm
+    template_name = 'edit_event.html'
+    success_url = reverse_lazy('success_page')
+
+
+
+class EventDeleteView(DeleteView):
+    model = Event
+    template_name = 'event_confirm_delete.html'
+    success_url = reverse_lazy('success_page')
 
 
 
