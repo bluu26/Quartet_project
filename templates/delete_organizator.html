@@ -2,7 +2,7 @@
 {% block content %}
 {% load static %}
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/organizator.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'organizator.css' %}">
 </head>
 
     
@@ -11,7 +11,7 @@
         <form method="post">
             {% csrf_token %}
             <button type="submit" class="delete-button">Tak, usuń</button>
-            <a href="{% url 'organizator_list' %}" class="cancel-button">Anuluj</a>
+            <a href="{% url 'organizator_list' %}" class="delete-button">Anuluj</a>
         </form>
     </div>
 

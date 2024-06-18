@@ -1,0 +1,16 @@
+{% include 'header.html' %}
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'song.css' %}">
+</head>
+{% block content %}
+    <div class="song-container">
+        <h2>Edytuj utwór</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="edit-button">Zapisz</button>
+            <a href="{% url 'song_list' %}" class="cancel-button">Anuluj</a>
+        </form>
+    </div>
+{% endblock %}

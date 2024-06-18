@@ -5,7 +5,7 @@ from django.views import View
 from django.contrib import messages
 from django.views.generic import DetailView, UpdateView, DeleteView
 
-from band_main.forms import EventForm, OrganizatorForm
+from band_main.forms import EventForm, OrganizatorForm, SongForm
 from band_main.models import Song, Organizator, Event
 
 
@@ -40,6 +40,30 @@ class SongListView(LoginRequiredMixin, View):
         context = {'songs': songs}
         return render(request, 'song_list.html', context)
 
+
+class EditSongView(View):
+    def get(self, request, song_id):
+        song = get_object_or_404(Song, id=song_id)
+        form = SongForm(instance=song)
+        return render(request, 'edit_song.html', {'form': form, 'song': song})
+
+    def post(self, request, song_id):
+        song = get_object_or_404(Song, id=song_id)
+        form = SongForm(request.POST, instance=song)
+        if form.is_valid():
+            form.save()
+            return redirect('songs_list')  # Replace 'songs_list' with your actual songs list view name
+        return render(request, 'edit_song.html', {'form': form, 'song': song})
+
+class DeleteSongView(View):
+    def get(self, request, song_id):
+        song = get_object_or_404(Song, id=song_id)
+        return render(request, 'delete_song.html', {'song': song})
+
+    def post(self, request, song_id):
+        song = get_object_or_404(Song, id=song_id)
+        song.delete()
+        return redirect('songs_list')
 
 class AddOrganizatorView(LoginRequiredMixin, View):
     def get(self, request):

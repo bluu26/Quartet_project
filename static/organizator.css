@@ -8,13 +8,46 @@ body {
 }
 
 .organizator-container {
-    width: 80%;
+    width: 50%; /* Szerokość kontenera */
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.organizator-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.organizator-form input[type="text"], .organizator-form input[type="submit"] {
+    width: 80%; /* Zmniejszona szerokość inputów */
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Uwzględnij padding w szerokości inputa */
+}
+
+.organizator-form input[type="submit"] {
+    width: auto; /* Przywrócenie automatycznej szerokości dla przycisku */
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.organizator-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.organizator-form label {
+    width: 80%; /* Dopasowanie szerokości etykiety do inputów */
+    margin-top: 10px;
+    font-weight: bold;
 }
 
 .organizator-table {

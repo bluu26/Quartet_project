@@ -1,13 +1,22 @@
 {% include 'header.html' %}
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'organizator.css' %}">
+</head>
 {% block content %}
-    <form method="POST">
-    {% csrf_token %}
-        <input type="text" name="name" placeholder="Nazwa">
-        <input type="text" name="contact" placeholder="Kontakt">
-        <input type="text" name="description" placeholder="notatka">
-        <input type="submit" value="zapiszcz">
-    </form>
-
-
-
+    <div class="organizator-container">
+        <form method="POST" class="organizator-form">
+            {% csrf_token %}
+            <label for="name">Organizator</label>
+            <input type="text" id="name" name="name" placeholder="">
+            
+            <label for="contact">Kontakt</label>
+            <input type="text" id="contact" name="contact" placeholder="">
+            
+            <label for="description">Notatka</label>
+            <input type="text" id="description" name="description" placeholder="">
+            
+            <input type="submit" value="Zapisz">
+        </form>
+    </div>
 {% endblock %}

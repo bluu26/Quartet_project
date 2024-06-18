@@ -10,7 +10,7 @@
 <script src="{% static 'script.js' %}"></script>
 
 <ul id="navbar">
-    <li><a class="active" href="{% url 'home' %}">Home</a></li>
+    <li><a class="active" href="{% url 'calendar_view' year=2024 month=6 %}">Home</a></li>
     {% if user.is_authenticated %}
         <li><a href="{% url 'create_event' %}">Dodaj wydarzenie</a></li>
         <li><a href="{% url 'add_song' %}">Dodaj utwór</a></li>

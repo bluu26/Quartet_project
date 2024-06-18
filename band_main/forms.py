@@ -25,3 +25,9 @@ class OrganizatorForm(forms.ModelForm):
     class Meta:
         model = Organizator
         fields = ['name', 'contact', 'description']
+
+
+class SongForm(forms.ModelForm):
+    class Meta:
+        model = Song
+        fields = ['name', 'composer']

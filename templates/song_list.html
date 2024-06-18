@@ -1,19 +1,32 @@
 {% include 'header.html' %}
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'song.css' %}">
+</head>
 {% block content %}
-    <table>
-        <tr>
-        <th>Utwór</th>
-        <th>kompozytor</th>
-        </tr>
-        <tr>
-        {% for song in songs %}
-        
-            <td>{{ song.name }}</td>
-            <td>{{ song.composer }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    
-
-
+    <div class="song-container">
+        <table class="song-table">
+            <thead>
+                <tr>
+                    <th>Utwór</th>
+                    <th>Kompozytor</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for song in songs %}
+                <tr>
+                    <td>{{ song.name }}</td>
+                    <td>{{ song.composer }}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <a href="{% url 'edit_song' song.id %}" class="edit-button">Edytuj</a>
+                            <a href="{% url 'delete_song' song.id %}" class="delete-button">Usuń</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
