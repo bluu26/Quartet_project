@@ -36,7 +36,11 @@ class AddSongView(LoginRequiredMixin, View):
 
 class SongListView(LoginRequiredMixin, View):
     def get(self, request):
-        songs = Song.objects.all()
+        query = request.GET.get('q')
+        if query:
+            songs = Song.objects.filter(name__icontains=query)
+        else:
+            songs = Song.objects.all()
         context = {'songs': songs}
         return render(request, 'song_list.html', context)
 

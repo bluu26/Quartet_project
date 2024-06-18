@@ -8,13 +8,39 @@ body {
 }
 
 .song-container {
-    width: 70%;
+    width: 80%;
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-form input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #45a049;
 }
 
 .song-table {
@@ -39,24 +65,15 @@ body {
 }
 
 .edit-button, .delete-button {
-    padding: 5px 10px;
+    display: inline-block;
+    padding: 8px 12px;
     background-color: #4CAF50;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    border: none;
-    cursor: pointer;
 }
 
 .edit-button:hover, .delete-button:hover {
     background-color: #45a049;
-}
-
-.delete-button {
-    background-color: #f44336; /* Red color */
-}
-
-.delete-button:hover {
-    background-color: #c62828; /* Darker red */
 }
