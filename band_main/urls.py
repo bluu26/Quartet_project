@@ -11,5 +11,6 @@ urlpatterns = [
     path('successpage/', views.SuccessPageView.as_view(), name='success_page'),
     path('addorganizator/', views.AddOrganizatorView.as_view(), name='add_organizator'),
     path('organizator_list/', views.OrganizatorListView.as_view(), name='organizator_list'),
+    path('organizator_list/', views.OrganizatorListView.as_view(), name='organizator_list'),
 
 ]
