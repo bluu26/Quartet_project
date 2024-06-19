@@ -48,3 +48,42 @@
 .details-link:hover {
     background-color: #0056b3;
 }
+
+.search-form {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: flex;
+    flex-wrap: wrap; /* Umożliwia przewijanie do nowego wiersza */
+    gap: 10px; /* Odstęp między elementami formularza */
+}
+
+.search-inputs {
+    display: flex;
+    align-items: center; /* Wyśrodkowanie elementów w pionie */
+}
+
+.search-inputs label {
+    margin-right: 10px; /* Odstęp między etykietą a polem wejściowym */
+}
+
+.search-inputs input[type="text"],
+.search-inputs input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px; /* Szerokość pól wejściowych */
+}
+
+.search-button {
+    margin-left: 20px;
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #45a049;
+}

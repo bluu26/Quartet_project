@@ -1,0 +1,79 @@
+/* song.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 0;
+}
+
+.song-container {
+    width: 60%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.song-container h2 {
+    margin-top: 0; /* Usunięcie domyślnego marginesu nad nagłówkiem */
+    margin-bottom: 20px; /* Dodatkowy margines na dole nagłówka */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Odległość między grupami pól */
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 50%; /* Pełna szerokość pola */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.action-buttons {
+    margin-top: 20px; /* Odległość od dołu formularza */
+    display: flex;
+    justify-content: flex-end; /* Wyrównanie przycisków do prawej */
+    gap: 10px; /* Przerwa między przyciskami */
+}
+
+.edit-button, .cancel-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.edit-button:hover, .cancel-button:hover {
+    background-color: #45a049;
+}
+
+.song-container2 {
+    width: 50%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.song-container2 h2 {
+    margin-top: 0; /* Usunięcie domyślnego marginesu nad nagłówkiem */
+    margin-bottom: 20px; /* Dodatkowy margines na dole nagłówka */
+}

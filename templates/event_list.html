@@ -10,6 +10,18 @@
     </head>
     <body>
         <div class="content">
+            <form method="GET" class="search-form">
+                <div class="search-inputs">
+                    <label for="id_date_start">Nazwa wydarzenia:</label>
+                    <input type="text" name="event_name" placeholder="Nazwa wydarzenia" value="{{ request.GET.event_name }}">
+                    
+                </div>
+                <div class="search-inputs">
+                    <label for="id_date_start">Data rozpoczęcia:</label>
+                    <input type="date" name="date_start" id="id_date_start" value="{{ request.GET.date_start }}">
+                    <button type="submit" class="search-button">Szukaj</button>
+                </div>
+            </form>
             <div class="event-list">
                 {% for event in events %}
                     <div class="event-item">
