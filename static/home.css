@@ -1,0 +1,58 @@
+/* Ogólny styl strony */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Styl dla opisu zespołu */
+.band-description {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styl dla członków zespołu */
+.band-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.member {
+    flex: 1 1 calc(33.333% - 40px);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.member h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.member p {
+    color: #555;
+}
+
+/* Styl dla małych ekranów */
+@media (max-width: 768px) {
+    .member {
+        flex: 1 1 calc(50% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .member {
+        flex: 1 1 100%;
+    }
+}

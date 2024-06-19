@@ -1,0 +1,32 @@
+{% include 'header.html' %}
+{% block content %}
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista wydarzeń</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'eventlist.css' %}">
+    </head>
+    <body>
+        <div class="content">
+            <div class="event-list">
+                {% for event in events %}
+                    <div class="event-item">
+                        <div class="event-header">
+                            <h3>{{ event.event_name }}</h3>
+                            <p>Rozpoczęcie: {{ event.date_start }}</p>
+                        </div>
+                        <div class="event-description">
+                            <p>{{ event.description }}</p>
+                            <a href="{% url 'event_details' event.id %}" class="details-link">Szczegóły</a>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>Brak wydarzeń do wyświetlenia.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+    </html>
+{% endblock %}

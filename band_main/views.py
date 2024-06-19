@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import View
 from django.contrib import messages
-from django.views.generic import DetailView, UpdateView, DeleteView
+from django.views.generic import DetailView, UpdateView, DeleteView, ListView
 
 from band_main.forms import EventForm, OrganizatorForm, SongForm
 from band_main.models import Song, Organizator, Event
@@ -14,6 +14,11 @@ from band_main.models import Song, Organizator, Event
 class HomeView(View):
     def get(self, request):
         return render(request, 'home.html')
+
+
+class AboutView(View):
+    def get(self, request):
+        return render(request, 'about.html')
 
 
 class SuccessPageView(View):
@@ -171,6 +176,14 @@ class EventDeleteView(DeleteView):
     template_name = 'event_confirm_delete.html'
     success_url = reverse_lazy('success_page')
 
+
+class EventListView(ListView):
+    model = Event
+    template_name = 'event_list.html'
+    context_object_name = 'events'
+
+    def get_queryset(self):
+        return Event.objects.all()
 
 
 

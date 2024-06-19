@@ -10,12 +10,13 @@
 <script src="{% static 'script.js' %}"></script>
 
 <ul id="navbar">
-    <li><a class="active" href="{% url 'calendar_view' year=2024 month=6 %}">Home</a></li>
+    <li><a class="active" href="{% url 'home' %}">Home</a></li>
     {% if user.is_authenticated %}
-        <li><a href="{% url 'create_event' %}">Dodaj wydarzenie</a></li>
-        <li><a href="{% url 'add_song' %}">Dodaj utwór</a></li>
+{#        <li><a href="{% url 'create_event' %}">Dodaj wydarzenie</a></li>#}
+{#        <li><a href="{% url 'add_song' %}">Dodaj utwór</a></li>#}
+        <li><a href="{% url 'event_list' %}">Wydarzenia</a></li>
         <li><a href="{% url 'song_list' %}">Utwory</a></li>
-        <li><a href="{% url 'add_organizator' %}">Dodaj organizatora</a></li>
+{#        <li><a href="{% url 'add_organizator' %}">Dodaj organizatora</a></li>#}
         <li><a href="{% url 'organizator_list' %}">Organizatorzy</a></li>
         <li><a href="{% url 'calendar_view' year=2024 month=6 %}">KALENDARZ</a></li>
     {% endif %}
@@ -25,7 +26,7 @@
         <li style="float:right"><a href="{% url 'register' %}">Register</a></li>
         <li style="float:right"><a href="{% url 'login' %}">Login</a></li>
     {% endif %}
-    <li style="float:right"><a href="{% url 'home' %}">About</a></li>
+    <li style="float:right"><a href="{% url 'about' %}">About</a></li>
 </ul>
 
 </body>

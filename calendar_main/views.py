@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 
 from band_main.models import Event
@@ -6,7 +7,7 @@ from django.utils import timezone
 import calendar
 
 
-class CalendarView(TemplateView):
+class CalendarView(LoginRequiredMixin, TemplateView):
     template_name = 'calendar/calendar_main.html'
 
     def get_context_data(self, **kwargs):

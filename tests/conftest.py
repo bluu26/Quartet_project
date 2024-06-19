@@ -95,3 +95,39 @@ def event2(organizator2, songs2):
 @pytest.fixture
 def song_del():
     return Song.objects.create(name='ns', composer='nc')
+
+
+@pytest.fixture
+def event3(organizator2, songs2):
+    event3 = Event.objects.create(
+        event_name='Event 1',
+        date_start='2024-06-20',
+        time_start='12:00',
+        time_end='14:00',
+        localization='Lokalizacja 1',
+        money_profit=100.0,
+        description='Opis 1',
+        leaving_location='Miejsce wyjazdu 1',
+        leaving_time='10:00',
+        organizator=organizator2
+    )
+    event3.song.set(songs2)
+    return event3
+
+
+@pytest.fixture
+def event4(organizator2, songs2):
+    event4 = Event.objects.create(
+        event_name='Event 2',
+        date_start='2024-06-22',
+        time_start='12:00',
+        time_end='14:00',
+        localization='Lokalizacja 1',
+        money_profit=100.0,
+        description='Opis 1',
+        leaving_location='Miejsce wyjazdu 1',
+        leaving_time='10:00',
+        organizator=organizator2
+    )
+    event4.song.set(songs2)
+    return event4

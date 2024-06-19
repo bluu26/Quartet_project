@@ -8,7 +8,7 @@ body {
 }
 
 .song-container {
-    width: 80%;
+    width: 60%;
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
@@ -20,11 +20,11 @@ body {
 .search-form {
     margin-bottom: 20px;
     display: flex;
-    justify-content: space-between;
+    align-items: center; /* Centrowanie elementów w pionie */
 }
 
 .search-form input[type="text"] {
-    width: 80%;
+    width: 50%; /* Zwiększ szerokość pola tekstowego */
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -37,6 +37,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 10px; /* Odległość od pola tekstowego */
 }
 
 .search-form button:hover {
@@ -44,9 +45,9 @@ body {
 }
 
 .song-table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%; /* Szerokość tabeli */
     margin-top: 20px;
+    border-collapse: collapse;
 }
 
 .song-table th, .song-table td {
@@ -60,6 +61,7 @@ body {
 }
 
 .action-buttons {
+    margin-top: 10px; /* Odległość od tabeli */
     display: flex;
     gap: 10px;
 }

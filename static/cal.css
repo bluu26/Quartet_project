@@ -2,7 +2,7 @@
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 20px; /* Dodatkowe padding dla lepszego wyglądu */
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@
     justify-content: space-between;
     align-items: center;
     width: 80%;
-    margin-bottom: 20px; /* Poprawione marginesy */
+    margin-bottom: 20px;
 }
 
 .nav-button {
@@ -58,36 +58,38 @@
     border: 1px solid #ddd;
     text-align: center;
     padding: 0;
-    vertical-align: top; /* Ustawienie dla prawidłowego wyświetlania zawartości w td */
-    height: 100px; /* Zachowuje wysokość komórek stałą */
-    width: calc(100% / 7); /* Automatycznie rozciąga się na szerokość */
+    vertical-align: top;
+    height: 100px;
+    width: calc(100% / 7);
 }
 
 .calendar-container td a {
-    display: block; /* Cały link w komórce staje się klikalny */
+    display: block;
     padding: 10px;
     text-decoration: none;
     color: #000;
+    transition: color 0.3s, background-color 0.3s; /* Dodatkowy efekt przejścia koloru i tła */
 }
 
 .calendar-container td a:hover {
-    color: #4CAF50;
+    color: #007BFF; /* Jasniejszy niebieski */
+    background-color: transparent; /* Usunięcie zmiany tła */
 }
 
 .calendar-container td ul {
     list-style-type: none;
     padding: 0;
-    margin: 5px 0 0; /* Margines tylko na górze */
+    margin: 5px 0 0;
 }
 
 .calendar-container td ul li {
-    background-color: rgba(0, 0, 0, 0.1); /* Przezroczysty czarny tło */
+    background-color: rgba(0, 0, 0, 0.1);
     margin-bottom: 5px;
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 3px;
-    text-align: center; /* Wyśrodkowanie tekstu */
-    font-size: 0.9em; /* Mniejsza czcionka */
+    text-align: center;
+    font-size: 0.9em;
 }
 
 .calendar-container td ul li:hover {
@@ -108,27 +110,36 @@
     color: #388E3C;
 }
 
-/* Styl dla wydarzeń w jednej linii */
 .event-row {
     background-color: #f4f4f4;
     list-style-type: none;
     padding: 0;
-    margin: 5px 0 0; /* Margines tylko na górze */
+    margin: 5px 0 0;
 }
 
 .calendar-container .event-row li {
-    background-color: #E3F2FD; /* Tło dla wydarzeń */
+    background-color: #E3F2FD;
     margin-bottom: 5px;
-    padding: 10px; /* Zwiększenie padding dla lepszego wyglądu */
+    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 3px;
-    text-align: center; /* Wyśrodkowanie tekstu */
-    font-size: 0.9em; /* Mniejsza czcionka */
-    width: calc(100% - 22px); /* Szerokość minus padding i border */
-    margin-left: 0; /* Usunięcie marginesu po lewej stronie */
+    text-align: center;
+    font-size: 0.9em;
+    width: calc(100% - 22px);
+    margin-left: 0;
 }
-
 
 .event-row li:hover {
     background-color: #f4f4f4;
+}
+
+.details-link {
+    text-decoration: none;
+    color: #4CAF50;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.details-link:hover {
+    color: #007BFF; /* Jasniejszy niebieski */
+    background-color: transparent; /* Usunięcie zmiany tła */
 }

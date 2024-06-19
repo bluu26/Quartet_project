@@ -1,0 +1,37 @@
+{% include 'header.html' %}
+{% load static %}
+<br><br>
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+<div class="band-description">
+    <h2>Rammstein</h2>
+    <p>Rammstein to niemiecka grupa muzyczna założona w 1994 roku w Berlinie. Zespół gra w gatunku Neue Deutsche Härte, łącząc elementy metalu industrialnego, rocka gotyckiego i muzyki elektronicznej. Ich charakterystyczny styl wyróżnia się mrocznymi tekstami, energetycznymi koncertami i pirotechnicznymi pokazami.</p>
+</div>
+
+<div class="band-members">
+    <div class="member">
+        <h3>Till Lindemann</h3>
+        <p>Wokalista, autor tekstów. Urodził się 4 stycznia 1963 roku w Lipsku. Znany z charakterystycznego głębokiego głosu i charyzmatycznej scenicznej osobowości.</p>
+    </div>
+    <div class="member">
+        <h3>Richard Kruspe</h3>
+        <p>Gitarzysta prowadzący, współzałożyciel zespołu. Urodził się 24 czerwca 1967 roku w Wittenberdze. Znany z technicznych umiejętności gitarowych i agresywnego stylu gry.</p>
+    </div>
+    <div class="member">
+        <h3>Paul Landers</h3>
+        <p>Gitarzysta rytmiczny, wokalista. Urodził się 9 czerwca 1963 roku w Berlinie. Znany z melodyjnych riffów gitarowych i charakterystycznego stylu śpiewu.</p>
+    </div>
+    <div class="member">
+        <h3>Oliver Riedel</h3>
+        <p>Basista. Urodził się 11 kwietnia 1967 roku w Schwerinie. Znany z solidnego basowego brzmienia i skromnej scenicznej osobowości.</p>
+    </div>
+    <div class="member">
+        <h3>Christoph Schneider</h3>
+        <p>Perkusista. Urodził się 8 października 1966 roku w Berlinie. Znany z precyzyjnej gry na perkusji i energicznego stylu scenicznego.</p>
+    </div>
+    <div class="member">
+        <h3>Christian Lorenz</h3>
+        <p>Klawiszowiec. Urodził się 30 sierpnia 1966 roku w Berlinie. Znany z tworzenia elektronicznych brzmień i sampli, które wzbogacają brzmienie zespołu.</p>
+    </div>
+</div>
+{% endblock %}

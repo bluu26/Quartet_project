@@ -22,6 +22,7 @@ from band_main import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.HomeView.as_view(), name='home'),
+    path('about/', views.AboutView.as_view(), name='about'),
     path('accounts/', include('accounts.urls')),
     path('main/', include('band_main.urls')),
     path('cal/', include('calendar_main.urls')),
