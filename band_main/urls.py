@@ -5,6 +5,7 @@ from band_main import views
 
 urlpatterns = [
     path('createevent/', views.CreateEventView.as_view(), name='create_event'),
+    path('eventlist/', views.EventListView.as_view(), name='event_list'),
     path('event_details/<int:pk>', views.EventDetailsView.as_view(), name='event_details'),
     path('event/edit/<int:pk>/', views.EventEditView.as_view(), name='edit_event'),
     path('event/delete/<int:pk>/', views.EventDeleteView.as_view(), name='delete_event'),

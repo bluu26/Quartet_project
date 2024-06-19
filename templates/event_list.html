@@ -1,0 +1,16 @@
+{% include 'header.html' %}
+{% block content %}
+    <h1>Lista wydarzeń</h1>
+    <ul>
+        {% for event in events %}
+            <li>
+                <h3>{{ event.event_name }}</h3>
+                <p>Data: {{ event.date_start }}</p>
+                <p>Opis: {{ event.description }}</p>
+
+            </li>
+        {% empty %}
+            <p>Brak wydarzeń do wyświetlenia.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}
