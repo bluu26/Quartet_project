@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="calendar-container">
-    <h1>Kalendarz</h1>
+    <h1>Callendario</h1>
 
     <div class="calendar-navigation">
         {% if previous_month %}
@@ -44,7 +44,7 @@
                                 {% if day in event_dict %}
                                     <ul class="event-row">
                                         {% for event in event_dict|get_item:day %}
-                                            <li><a href="{% url 'event_details' pk=event.id %}">{{ event.event_name }}</a></li>
+                                            <li><a href="{% url 'event_details' pk=event.id %}" class="details-link">{{ event.event_name }}<br>Start: {{ event.time_start }}</a></li>
                                         {% endfor %}
                                     </ul>
                                 {% endif %}
