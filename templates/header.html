@@ -12,11 +12,11 @@
 <ul id="navbar">
     <li><a class="active" href="{% url 'home' %}">Home</a></li>
     {% if user.is_authenticated %}
-        <li><a href="{% url 'create_event' %}">Dodaj wydarzenie</a></li>
-        <li><a href="{% url 'add_song' %}">Dodaj utwór</a></li>
+{#        <li><a href="{% url 'create_event' %}">Dodaj wydarzenie</a></li>#}
+{#        <li><a href="{% url 'add_song' %}">Dodaj utwór</a></li>#}
         <li><a href="{% url 'event_list' %}">Wydarzenia</a></li>
         <li><a href="{% url 'song_list' %}">Utwory</a></li>
-        <li><a href="{% url 'add_organizator' %}">Dodaj organizatora</a></li>
+{#        <li><a href="{% url 'add_organizator' %}">Dodaj organizatora</a></li>#}
         <li><a href="{% url 'organizator_list' %}">Organizatorzy</a></li>
         <li><a href="{% url 'calendar_view' year=2024 month=6 %}">KALENDARZ</a></li>
     {% endif %}

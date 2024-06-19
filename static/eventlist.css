@@ -1,0 +1,50 @@
+.event-item {
+    border: 1px solid #ccc; /* Ramka */
+    margin-top: 1%;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif; /* Zmiana czcionki */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Cień */
+    width: 20%; /* Szerokość elementu, aby były wyśrodkowane na stronie */
+    margin-left: 1%; /* Odległość od lewej krawędzi */
+}
+
+.event-header {
+    border-bottom: 1px solid #ccc; /* Ramka na dole nagłówka */
+    padding-bottom: 10px; /* Odstęp między nagłówkiem a opisem */
+    margin-bottom: 10px; /* Odstęp na dole nagłówka */
+}
+
+.event-header h3 {
+    margin-top: 0;
+    font-size: 1.5em; /* Rozmiar nagłówka */
+}
+
+.event-header p {
+    margin: 5px 0;
+    font-size: 1.2em; /* Rozmiar tekstu */
+}
+
+.event-description {
+    padding-top: 10px; /* Odstęp między opisem a linkiem */
+}
+
+.event-description p {
+    font-size: 1.1em; /* Rozmiar tekstu opisu */
+}
+
+.details-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.details-link:hover {
+    background-color: #0056b3;
+}
