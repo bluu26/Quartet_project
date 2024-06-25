@@ -1,5 +1,8 @@
 {% include 'header.html' %}
+{% load static %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+<div class="login-container">
 
     <p>{{ info }}</p>
     {% if messages %}
@@ -8,4 +11,5 @@
     {% endfor %}
 {% endif %}
     <a href="{% url 'calendar_view' year=2024 month=6 %}"><button>Powrót</button></a>
+</div>
 {% endblock %}
