@@ -1,0 +1,1 @@
+web: gunicorn Band_man_project.wsgi:application
