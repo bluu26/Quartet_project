@@ -1,17 +1,39 @@
 {% include 'header.html' %}
-{% block content %}
+
 {% load static %}
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/organizator.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'songedit.css' %}">
 </head>
-    
-    <div class="organizator-edit-container">
-        <h1>Edytuj Organizatora: {{ organizator.name }}</h1>
-        <form method="post">
+{#{% block content %}#}
+{#    #}
+{#    <div class="song-container2">#}
+{#        <h1>Edytuj Organizatora: {{ organizator.name }}</h1>#}
+{#        <form method="post">#}
+{#            {% csrf_token %}#}
+{#            {{ form.as_p }}#}
+{#            <button type="submit" class="edit-submit-button">Zapisz zmiany</button>#}
+{#        </form>#}
+{#    </div>#}
+{##}
+{#{% endblock %}#}
+{% block content %}
+    <div class="song-container2">
+        <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="edit-submit-button">Zapisz zmiany</button>
+            <div class="form-group">
+                <label for="id_name">Nazwa:</label>
+                {{ form.name }}
+            </div><br>
+            <div class="form-group">
+                <label for="id_composer">Kontakt:</label>
+                {{ form.contact }}
+            </div><br>
+            <div class="form-group">
+                <label for="id_composer">Notatka:</label>
+                {{ form.description }}
+            </div><br>
+            <button type="submit" class="edit-button">Zapisz</button>
+            <a href="{% url 'organizator_list' %}" class="edit-button">Anuluj</a>
         </form>
     </div>
-
 {% endblock %}

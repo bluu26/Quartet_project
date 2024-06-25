@@ -1,16 +1,27 @@
 {% include 'header.html' %}
+{% load static %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+<div class="login-container">
     <h2>Create User</h2>
-    <h3>{{ error }}</h3>
+    {% if error %}
+        <h3>{{ error }}</h3>
+    {% endif %}
     <form method="POST">
-        <p><input type="text" name="username" placeholder="usernane"></p>
-        <p><input type="password" name="password" placeholder="Haslo"></p>
-        <p><input type="password" name="password2" placeholder="Haslo powtorz"></p>
-        <p><input type="text" name="secret_code" placeholder="kod" required></p>
-        {% if error %}
-            <p>{{ error }}</p>
-        {% endif %}
+        <div class="input-group">
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" placeholder="Hasło" required>
+        </div>
+        <div class="input-group">
+            <input type="password" name="password2" placeholder="Powtórz hasło" required>
+        </div>
+        <div class="input-group">
+            <input type="text" name="secret_code" placeholder="Kod" required>
+        </div>
         {% csrf_token %}
         <button type="submit">Create user</button>
     </form>
+</div>
 {% endblock %}

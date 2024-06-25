@@ -2,8 +2,18 @@
 {% load static %}
 <br><br>
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'background.css' %}">
-    <p>Helloooooo</p>
-
-
+<link rel="stylesheet" type="text/css" href="{% static 'home2.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'icon' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="icon/style.css">
+<div class="content-container">
+    <p>Witajcie na stronie zespołu Ramstein</p>
+    <p>Dziękujemy za wizytę</p>
+    <p>Kontakt z zespołem, prosimy skorzystać z linków</p>
+    <ul>
+        <li><a href="#"><i class="fa-brands fa-instagram instagram"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-whatsapp whatsapp"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-twitter twitter"></i></a></li>
+    </ul>
+</div>
 {% endblock %}

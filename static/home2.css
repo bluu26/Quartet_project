@@ -1,0 +1,59 @@
+/* ramstein_home.css */
+
+/* Ustawienie stylów globalnych dla sekcji content-container */
+.content-container {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Stylowanie paragrafów wewnątrz content-container */
+.content-container p {
+    font-size: 24px; /* Większy rozmiar czcionki */
+    margin: 10px 0;
+}
+
+/* Stylowanie listy ikon wewnątrz content-container */
+.content-container ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    background: transparent; /* Ustawienie przezroczystego tła */
+}
+
+.content-container ul li {
+    display: inline-block;
+}
+
+.content-container ul li a {
+    color: #333;
+    font-size: 36px; /* Większy rozmiar ikon */
+    transition: color 0.3s ease;
+    background: transparent; /* Ustawienie przezroczystego tła */
+    padding: 10px;
+    border-radius: 50%; /* Zaokrąglenie ikon, jeśli mają padding */
+}
+
+.content-container ul li a:hover {
+    color: #555; /* Zmiana koloru przy najechaniu myszką */
+}
+
+/* Kolorowanie poszczególnych ikon */
+.content-container .instagram {
+    color: #C13584;
+}
+
+.content-container .whatsapp {
+    color: #25D366;
+}
+
+.content-container .twitter {
+    color: #1DA1F2;
+}

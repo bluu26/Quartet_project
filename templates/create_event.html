@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="create-event-container">
-        <h1>Stwórz nowe wydarzenie</h1>
+        <h1>Wydarzenie</h1>
         <form method="POST">
             {% csrf_token %}
             <div class="form-container">
@@ -64,11 +64,11 @@
                     <div class="songs-table-container">
                         <table class="songs-table">
                             <thead>
-                                <tr>
-                                    <th>X Kompozytor Utwór</th>
-                                    <th>Kompozytor</th>
-                                    <th>Utwór</th>
-                                </tr>
+{#                                <tr class="tr-container">#}
+{#                                    <th>X Kompozytor Utwór</th>#}
+{#                                    <th>Kompozytor</th>#}
+{#                                    <th>Utwór</th>#}
+{#                                </tr>#}
                             </thead>
                             <tbody>
                                 {% for song in songs %}

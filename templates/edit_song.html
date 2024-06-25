@@ -1,16 +1,22 @@
 {% include 'header.html' %}
 {% load static %}
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'song.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'songedit.css' %}">
 </head>
 {% block content %}
-    <div class="song-container">
-        <h2>Edytuj utwór</h2>
+    <div class="song-container2">
         <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="form-group">
+                <label for="id_name">Nazwa utworu:</label>
+                {{ form.name }}
+            </div><br>
+            <div class="form-group">
+                <label for="id_composer">Kompozytor:</label>
+                {{ form.composer }}
+            </div><br>
             <button type="submit" class="edit-button">Zapisz</button>
-            <a href="{% url 'song_list' %}" class="cancel-button">Anuluj</a>
+            <a href="{% url 'song_list' %}" class="edit-button">Anuluj</a>
         </form>
     </div>
 {% endblock %}

@@ -181,9 +181,21 @@ class EventListView(ListView):
     model = Event
     template_name = 'event_list.html'
     context_object_name = 'events'
+    paginate_by = 10
 
     def get_queryset(self):
-        return Event.objects.all()
+        queryset = Event.objects.all()
+
+        event_name = self.request.GET.get('event_name')
+        if event_name:
+            queryset = queryset.filter(event_name__icontains=event_name)
+
+        date_start = self.request.GET.get('date_start')
+        if date_start:
+            queryset = queryset.filter(date_start=date_start)
+
+        return queryset
+
 
 
 
