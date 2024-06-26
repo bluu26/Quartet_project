@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-ou=dpbx4+4#-m6oh3$#2kspv_p*53v#*x#syn8t2%4$_1j$n09
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['quartet-6bdd29807395.herokuapp.com']
+ALLOWED_HOSTS = ['quartet-6bdd29807395.herokuapp.com',
+                 'localhost']
 
 
 # Application definition
@@ -78,13 +79,21 @@ WSGI_APPLICATION = 'Band_man_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+        # 'default': {
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'quartet_project',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'coderslab',
+        # 'HOST': 'localhost',
+        # 'PORT': '5432'}
         'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'quartet_project',
-        'USER': 'postgres',
-        'PASSWORD': 'coderslab',
-        'HOST': 'localhost',
-        'PORT': '5432'}
+        'NAME': 'd6dle7rk19pmvo',
+        'USER': 'ueqe8usq4sqppi',
+        'PASSWORD': 'p83fd32b8bee55a4d73ea967a8274354588536a57ebb42b25e9e1a358181f58c9',
+        'HOST': 'c9tiftt16dc3eo.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com',
+        'PORT': '5432',
+        'Heroku CLI': 'heroku pg:psql postgresql-crystalline-41202 --app quartet'}
 }
 
 
